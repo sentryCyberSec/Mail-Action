@@ -32,4 +32,4 @@ mailContent_Type="text/html"
 mailTo="1904829268@qq.com"
 mailHTMLFile="/home/bin4xin/shares/share-files/bash/s-nail-bash-ps/google.html"
 
-echo -e "IP地址:$serverIPaddr\n 地址:$serverPlace\n 当地时间:$serverDate\n 共计:$processCounts进程\n <!DOCTYPE html><body><div style="padding-top:20px;font-size:12px;line-height:16px;color:#5f6368;letter-spacing:0.3px;text-align:center">今日讯息<br><a style="color:rgba(0,0,0,0.87);text-decoration:inherit"><code>$process</code></a></div></body></html>" >> result.html
+echo -e "IP地址:$serverIPaddr\n 地址:$serverPlace\n 当地时间:$serverDate\n 共计:$processCounts进程\n <!DOCTYPE html><body><div style="padding-top:20px;font-size:12px;line-height:16px;color:#5f6368;letter-spacing:0.3px;text-align:center">今日讯息<br><code>$process</code></div></body></html>" >> result.html
