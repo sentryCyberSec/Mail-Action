@@ -95,7 +95,7 @@ fontStyleEnd=$(cat<<EOF
 EOF
 )
 
-echo -e "$fontStyle\nIP地址:$serverIPaddr\n地址:$serverPlace\n当地时间:$serverDate\n共计:$processCounts进程\n$fontStyleEnd\n$fontStyleEnd$htmlTempStart$process$htmlTempEnd" > result.html
+echo -e "$fontStyle\nIP地址:$serverIPaddr\n地址:$serverPlace\n当地时间:$serverDate\n共计:$processCounts进程\n$fontStyleEnd\n$fontStyleEnd\n$htmlTempStart\n$process\n$htmlTempEnd\n" > result.html
 
 #mailFrom=""
 
