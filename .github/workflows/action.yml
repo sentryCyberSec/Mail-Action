@@ -3,7 +3,7 @@ name: 'GitHub Actions Email Actions By bin4xin'
 on:
   push:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
 
 jobs:
   bot:
