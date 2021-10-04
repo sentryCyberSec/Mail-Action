@@ -12,3 +12,26 @@ curl \
   -H "User-Agent: $UA" \
   -o result.html \
   wttr.in/$CITY?format=4\&$UNIT
+
+#########################################
+##                  @Mail Y0ur Linux   ##
+##                  @Code by Bin4xin   ##
+#########################################
+
+#ps aux --sort=-rss  >> ps-aux.data
+#s-nail -M "text/html" -s "信息来自：【$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')】|【$(date +%Y/%m/%d/%R) |
+#$(ps aux --sort=-rss|wc -l)进程】" 1904829268@qq.com < google.html
+
+
+serverIPaddr=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==1')
+serverPlace=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')
+serverDate=$(date +%Y/%m/%d/%R)
+processCounts=$(ps aux --sort=-rss|wc -l)
+
+mailContent_Type="text/html"
+mailTo="1904829268@qq.com"
+mailHTMLFile="/home/bin4xin/shares/share-files/bash/s-nail-bash-ps/google.html"
+
+echo "$serverIPaddr X $serverPlace X $serverDate X TOTAL $processCounts Processes" >> result.html
+
+
