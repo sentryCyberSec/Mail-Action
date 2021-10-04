@@ -23,7 +23,8 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: "Bin4xin: note about server machine - ${{ env.REPORT_DATE }}"
-          body: file://result.html
+          html_body: file://result.html
           to: 1904829268@qq.com
+          cc: chihou.pro@gmail.com
           from: GitHub Actions
           content_type: text/html
