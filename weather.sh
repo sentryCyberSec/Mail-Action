@@ -27,9 +27,9 @@ serverIPaddr=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==1')
 serverPlace=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')
 serverDate=$(date +%Y/%m/%d/%R)
 processCounts=$(ps aux --sort=-rss|wc -l)
-
+process=$(ps aux --sort=-rss)
 mailContent_Type="text/html"
 mailTo="1904829268@qq.com"
 mailHTMLFile="/home/bin4xin/shares/share-files/bash/s-nail-bash-ps/google.html"
 
-echo -e "IP地址:$serverIPaddr\n 地址:$serverPlace\n 当地时间:$serverDate\n 共计:$processCounts进程" >> result.html
+echo -e "IP地址:$serverIPaddr\n 地址:$serverPlace\n 当地时间:$serverDate\n 共计:$processCounts进程\n <code>$process</code>" >> result.html
