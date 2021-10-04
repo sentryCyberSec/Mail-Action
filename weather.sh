@@ -1,6 +1,4 @@
-#!/bin/sh
-
-set -eux
+#!/bin/bash
 #########################################
 ##                  @Mail Y0ur Linux   ##
 ##                  @Code by Bin4xin   ##
@@ -88,10 +86,17 @@ EOF
 #mailContent_Type="text/html"
 #mailTo="1904829268@qq.com"
 #mailHTMLFile="/home/bin4xin/shares/share-files/bash/s-nail-bash-ps/google.html"
+fontStyle=$(cat<<EOF
+<font size="3" color="red">
+EOF
+)
+fontStyleEnd=$(cat<<EOF
+</font>
+EOF
+)
 
-echo -e "IP地址:$serverIPaddr\n地址:$serverPlace\n当地时间:$serverDate\n共计:$processCounts进程\n$htmlTempStart$process$htmlTempEnd" > result.html
+echo -e "$fontStyle\nIP地址:$serverIPaddr\n地址:$serverPlace\n当地时间:$serverDate\n共计:$processCounts进程\n$fontStyleEnd\n$fontStyleEnd$htmlTempStart$process$htmlTempEnd" > result.html
 
 #mailFrom=""
 
 #s-nail -M '$mailContent_Type' -s '信息来自：【$serverPlace｜$serverDate】共计【$processCounts】进程' $mailTo < $mailHTMLFile
-
