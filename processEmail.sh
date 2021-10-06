@@ -98,7 +98,7 @@ htmlTempEnd=$(cat<<EOF
 	</div>
 	<div style="text-align:left">
 				<div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;color:rgba(0,0,0,0.54);font-size:11px;line-height:18px;padding-top:12px;text-align:center">
-			<div>© 哨兵安全 · 我们按照您的要求向您发送这封电子邮件</div><div style="direction:ltr">© Sentry Security LAB, Heavenly Universal Center, 556 Changjiang West Road,Shushan District, Hefei City, Anhui Province, CHINA
+			<div>© 哨兵安全 · 我们按照您的要求向您发送这封电子邮件</div><div style="direction:ltr">© Sentry Security LAB, Sentry Security LAB, Heavenly Universal Center, NO.556 Changjiang West Road,Shushan District, Hefei City, Anhui Province, CHINA
 			</div>
 		</div>
 	</div>

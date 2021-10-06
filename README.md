@@ -11,7 +11,7 @@
 
 ## 效果
 
-![](staic/IMG_C88654818CBB-1.jpeg)
+![](/assets/IMG_E169327EB634-1.jpeg)
 
 ## 拓展阅读
 
