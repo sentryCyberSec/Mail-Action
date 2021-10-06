@@ -1,19 +1,40 @@
 #!/bin/bash
 #########################################
-##                  @Mail Y0ur Linux   ##
-##                  @Code by Bin4xin   ##
+##    @Mail Y0ur Linux                 ##
+##    @Sentry Sec LAB, Code by Bin4xin.##
 #########################################
 
-#ps aux --sort=-rss  >> ps-aux.data
+## linux term command to send mail.
+#mailContent_Type="text/html"
+#mailTo="1904829268@qq.com"
+#mailHTMLFile="/home/bin4xin/shares/share-files/bash/s-nail-bash-ps/google.html"
+#mailFrom=""
+#s-nail -M '$mailContent_Type' -s '信息来自：【$serverPlace｜$serverDate】共计【$processCounts】进程' $mailTo < $mailHTMLFile
 #s-nail -M "text/html" -s "信息来自：【$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')】|【$(date +%Y/%m/%d/%R) | 
 #$(ps aux --sort=-rss|wc -l)进程】" 1904829268@qq.com < google.html
+
+## end.
+
+## Github action html temp test.
+# fontStyle=$(cat<<EOF
+# <font size="3" color="red">
+# EOF
+# )
+# fontStyleEnd=$(cat<<EOF
+# </font>
+# EOF
+# )
+## tmp stop
+
 
 
 serverIPaddr=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==1')
 serverPlace=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')
 serverDate=$(date +%Y/%m/%d/%R)
-processCounts=$(ps aux --sort=-rss|wc -l)
-process=$(ps aux --sort=-rss)
+processCounts=$(ps -ef|wc -l)
+
+serverAllTipsInfo="当地时间: $serverDate<br>共计: $processCounts个进程<br>IP地址:$serverIPaddr<br>地址:$serverPlace<br>"
+process=$(ps -Ao user,pid,comm --no-headers --sort=-uid| awk 'BEGIN{print "USER,PID,CMD"}{$1=$1}1' OFS=,|sed 's/$/<br>/')
 
 htmlTempStart=$(cat<<EOF
 <table border="0" cellspacing="0" cellpadding="0" style="padding-bottom:20px;max-width:516px;min-width:220px">
@@ -60,6 +81,9 @@ htmlTempStart=$(cat<<EOF
 	</g>
 </g>
 	<div style="font-family:'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;word-break:break-word">
+		<table align="center" style="margin-top:8px"><tbody><tr style="line-height:normal"><td align="right" style="padding-right:8px">
+		© 哨兵安全</a></td></tr></tbody></table>
+	</div>
 	<table align="center" style="margin-top:8px"><tbody><tr style="line-height:normal"><td align="right" style="padding-right:8px">
 		<div style="padding-top:20px;font-size:12px;line-height:16px;color:#5f6368;letter-spacing:0.3px;text-align:center">今日讯息<br>
 			<a style="color:rgba(0,0,0,0.87);text-decoration:inherit">
@@ -72,31 +96,16 @@ htmlTempEnd=$(cat<<EOF
 			</a>
 		</div>
 	</div>
-	<!--<div style="text-align:left">
+	<div style="text-align:left">
 				<div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;color:rgba(0,0,0,0.54);font-size:11px;line-height:18px;padding-top:12px;text-align:center">
-			<div>我们向您发送这封电子邮件，是因为您自己写的代码发送此邮件:)</div><div style="direction:ltr">© 2021 Sentry LLC, <a class="m_-6187630639195844270afal" style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;color:rgba(0,0,0,0.54);font-size:11px;line-height:18px;padding-top:12px;text-align:center">1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</a>
+			<div>© 哨兵安全 · 我们按照您的要求向您发送这封电子邮件</div><div style="direction:ltr">© Sentry Security LAB, Heavenly Universal Center, 556 Changjiang West Road,Shushan District, Hefei City, Anhui Province, CHINA
 			</div>
-		</div>-->
+		</div>
 	</div>
 </td>
 <td width="8" style="width:8px"></td></tr></tbody></table>
 EOF
 )
 
-#mailContent_Type="text/html"
-#mailTo="1904829268@qq.com"
-#mailHTMLFile="/home/bin4xin/shares/share-files/bash/s-nail-bash-ps/google.html"
-fontStyle=$(cat<<EOF
-<font size="3" color="red">
-EOF
-)
-fontStyleEnd=$(cat<<EOF
-</font>
-EOF
-)
+echo -e "$fontStyleEnd\n$fontStyleEnd\n$htmlTempStart\n$serverAllTipsInfo\n$process\n$htmlTempEnd\n" > result.html
 
-echo -e "$fontStyle\nIP地址:$serverIPaddr\n地址:$serverPlace\n当地时间:$serverDate\n共计:$processCounts进程\n$fontStyleEnd\n$fontStyleEnd\n$htmlTempStart\n$process\n$htmlTempEnd\n" > result.html
-
-#mailFrom=""
-
-#s-nail -M '$mailContent_Type' -s '信息来自：【$serverPlace｜$serverDate】共计【$processCounts】进程' $mailTo < $mailHTMLFile

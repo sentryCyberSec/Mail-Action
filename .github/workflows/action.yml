@@ -3,7 +3,7 @@ name: 'GitHub Actions Email Actions By bin4xin'
 on:
   push:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 */6 * * *'
 
 jobs:
   bot:
@@ -12,7 +12,7 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Send Email'
-        run: bash ./weather.sh
+        run: bash ./processEmail.sh
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send mail'
