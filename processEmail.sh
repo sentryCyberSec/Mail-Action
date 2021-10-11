@@ -81,7 +81,7 @@ htmlTempStart=$(cat<<EOF
 </svg>
 	<div style="border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center">
 		<table align="center" style="margin-top:8px"><tbody><tr style="line-height:normal"><td align="right" style="padding-right:8px">
-		© 哨兵安全 · 我们按照您的要求向您发送这封电子邮件</a></td></tr></tbody></table>
+		© 哨兵安全</a></td></tr></tbody></table>
 	</div>
 	<table align="center" style="margin-top:8px"><tbody><tr style="line-height:normal"><td align="right" style="padding-right:8px">
 		<div style="padding-top:20px;font-size:12px;line-height:16px;color:#5f6368;letter-spacing:0.3px;text-align:center">
