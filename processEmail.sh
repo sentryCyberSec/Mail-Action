@@ -4,27 +4,6 @@
 ##    @Sentry Sec LAB, Code by Bin4xin.##
 #########################################
 
-## linux term command to send mail.
-#mailContent_Type="text/html"
-#mailTo="1904829268@qq.com"
-#mailHTMLFile="/home/bin4xin/shares/share-files/bash/s-nail-bash-ps/google.html"
-#mailFrom=""
-#s-nail -M '$mailContent_Type' -s '信息来自：【$serverPlace｜$serverDate】共计【$processCounts】进程' $mailTo < $mailHTMLFile
-#s-nail -M "text/html" -s "信息来自：【$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')】|【$(date +%Y/%m/%d/%R) | 
-#$(ps aux --sort=-rss|wc -l)进程】" 1904829268@qq.com < google.html
-## end.
-
-## Github action html temp test.
-# fontStyle=$(cat<<EOF
-# <font size="3" color="red">
-# EOF
-# )
-# fontStyleEnd=$(cat<<EOF
-# </font>
-# EOF
-# )
-## tmp stop
-
 serverIPaddr=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==1')
 serverPlace=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')
 serverDate=$(date +%Y/%m/%d/%R)
