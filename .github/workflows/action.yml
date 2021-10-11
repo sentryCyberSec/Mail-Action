@@ -14,7 +14,7 @@ jobs:
       - name: 'Send Email'
         run: bash ./processEmail.sh
       - name: 'Get Date'
-        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+        run: echo "REPORT_PLACE=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')" >> $GITHUB_ENV
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@v3
         with:
@@ -22,9 +22,9 @@ jobs:
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "Bin4xin: note about server machine - ${{ env.REPORT_DATE }}"
+          subject: "Github Actions - ${{ env.REPORT_PLACE }} Machine"
           html_body: file://result.html
           to: 1904829268@qq.com
           cc: chihou.pro@gmail.com
-          from: GitHub Actions
+          from: 哨兵
           content_type: text/html

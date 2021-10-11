@@ -12,7 +12,6 @@
 #s-nail -M '$mailContent_Type' -s '信息来自：【$serverPlace｜$serverDate】共计【$processCounts】进程' $mailTo < $mailHTMLFile
 #s-nail -M "text/html" -s "信息来自：【$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')】|【$(date +%Y/%m/%d/%R) | 
 #$(ps aux --sort=-rss|wc -l)进程】" 1904829268@qq.com < google.html
-
 ## end.
 
 ## Github action html temp test.
@@ -26,22 +25,22 @@
 # )
 ## tmp stop
 
-
-
 serverIPaddr=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==1')
 serverPlace=$(curl -sL ip.tool.lu |awk -F ":" '{print $2}'|awk 'NR==2')
 serverDate=$(date +%Y/%m/%d/%R)
 processCounts=$(ps -ef|wc -l)
 
-serverAllTipsInfo="当地时间: $serverDate<br>共计: $processCounts个进程<br>IP地址:$serverIPaddr<br>地址:$serverPlace<br>"
-process=$(ps -Ao user,pid,comm --no-headers --sort=-uid| awk 'BEGIN{print "USER,PID,CMD"}{$1=$1}1' OFS=,|sed 's/$/<br>/')
+serverAllTipsInfo="$serverPlace当地时间：$serverDate<br>共计：$processCounts个进程<br>IP地址：$serverIPaddr"
+process=$(ps -Ao user,pid,comm --no-headers --sort=-uid| awk 'BEGIN{print "USER,PID,CMD"}{$1=$1}1' OFS=,)
 
 htmlTempStart=$(cat<<EOF
+<link rel="stylesheet" type="text/css" href="https://bin4xin.gitee.io/static/css/bootstrap.css"/>
 <table border="0" cellspacing="0" cellpadding="0" style="padding-bottom:20px;max-width:516px;min-width:220px">
 		<tbody><tr>
 			<td width="8" style="width:8px"></td>
 		<td>
-		<div style="border-style:solid;border-width:thin;border-color:#dadce0;border-radius:8px;padding:40px 20px" align="center" class="m_-6187630639195844270mdv2rw"><svg version="1.1"
+		<div style="border-style:solid;border-width:thin;border-color:#dadce0;border-radius:8px;padding:40px 20px" align="center">
+<svg version="1.1"
 	 id="svg3093" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 68 50"
 	 style="enable-background:new 0 0 68 50;" xml:space="preserve" width="148" height="48" >
@@ -77,28 +76,26 @@ htmlTempStart=$(cat<<EOF
 			c2.3-0.6,3.7-0.1,3.9,0.8c0.2-0.5,0.3-1,0.3-1.5C43.5,11,42.1,9.7,40.3,9.6z M37.1,9.9c-0.5-0.1-0.3-0.8-1.4-1.1c0,0,0,0-0.1,0
 			c1.4-0.2,2,0.3,2,0.5C37.7,9.8,37.3,9.9,37.1,9.9z"/>
 		<path class="st0" d="M21.1,31.2C21.1,31.2,21.1,31.2,21.1,31.2C21.1,31.1,21,31,21.1,31.2z"/>
-</svg>
 	</g>
 </g>
-	<div style="font-family:'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;word-break:break-word">
+</svg>
+	<div style="border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center">
 		<table align="center" style="margin-top:8px"><tbody><tr style="line-height:normal"><td align="right" style="padding-right:8px">
-		© 哨兵安全</a></td></tr></tbody></table>
+		© 哨兵安全 · 我们按照您的要求向您发送这封电子邮件</a></td></tr></tbody></table>
 	</div>
 	<table align="center" style="margin-top:8px"><tbody><tr style="line-height:normal"><td align="right" style="padding-right:8px">
-		<div style="padding-top:20px;font-size:12px;line-height:16px;color:#5f6368;letter-spacing:0.3px;text-align:center">今日讯息<br>
-			<a style="color:rgba(0,0,0,0.87);text-decoration:inherit">
-<code>
+		<div style="padding-top:20px;font-size:12px;line-height:16px;color:#5f6368;letter-spacing:0.3px;text-align:center">
+<pre><code><a style="color:rgba(0,0,0,0.87);text-decoration:inherit">
 EOF
 )
 
 htmlTempEnd=$(cat<<EOF
-</code>
-			</a>
+</a></code></pre>
 		</div>
 	</div>
 	<div style="text-align:left">
 				<div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;color:rgba(0,0,0,0.54);font-size:11px;line-height:18px;padding-top:12px;text-align:center">
-			<div>© 哨兵安全 · 我们按照您的要求向您发送这封电子邮件</div><div style="direction:ltr">© Sentry Security LAB, Sentry Security LAB, Heavenly Universal Center, NO.556 Changjiang West Road,Shushan District, Hefei City, Anhui Province, CHINA
+			<div style="direction:ltr">© Sentry Security LAB, Sentry Security LAB, Heavenly Universal Center, NO.556 Changjiang West Road,Shushan District, Hefei City, Anhui Province, CHINA
 			</div>
 		</div>
 	</div>
@@ -108,4 +105,3 @@ EOF
 )
 
 echo -e "$fontStyleEnd\n$fontStyleEnd\n$htmlTempStart\n$serverAllTipsInfo\n$process\n$htmlTempEnd\n" > result.html
-

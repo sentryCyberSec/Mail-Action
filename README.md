@@ -6,7 +6,7 @@
 
 - **基于Github Action的Bash自动邮件脚本**
 	- **邮件网页模版设计;**
-	- **邮件格式`html_body: file://result.html`;**
+	- **邮件HTML格式`html_body: file://result.html`;**
 	- **抄送`cc`.**
 
 ## 效果
@@ -21,3 +21,15 @@
 	- [ruanyf/weather-action](https://github.com/ruanyf/weather-action)
 - 相关官方文档
 	- [Github Actions.](https://github.com/features/actions)
+
+## 参考文献/代码
+
+- [crontab执行时间计算](https://tool.lu/crontab/)
+- [bash-use-printf-for-comma-seperated-columns](https://stackoverflow.com/questions/51578299/bash-use-printf-for-comma-seperated-columns)
+- [sed相关用法]
+	- [sed在行首（行尾）添加字符串；在某行后添加多行字符串](https://blog.csdn.net/qianlong4526888/article/details/8669935)
+	- [sed当中使用变量替换以及执行外部命令](https://blog.csdn.net/linwhwylb/article/details/7184748)
+
+## 致谢:)
+
+感谢以上所有链接文章的作者以及开源代码:)
