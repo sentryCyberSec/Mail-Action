@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: "${{ env.REPORT_PLACE }} - 订阅信息"
           html_body: file://result.html
-          to: 331336101@qq.com
+          to: 3313336101@qq.com
           #cc: chihou.pro@gmail.com
           from: 哨兵 -  ${{ env.REPORT_COMMIT }}
           content_type: text/html
