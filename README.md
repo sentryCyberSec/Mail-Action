@@ -11,7 +11,7 @@
 
 ## 效果
 
-![](/assets/IMG_E169327EB634-1.jpeg)
+<img src="/assets/IMG_E169327EB634-1.jpeg" width="50%" height="50%"> 
 
 ## 下一步计划
 
