@@ -22,11 +22,13 @@ jobs:
         with:
           server_address: smtp.qq.com
           server_port: 465
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
+          #username: ${{ secrets.MAIL_USERNAME }}
+          #password: ${{ secrets.MAIL_PASSWORD }}
+          username: ${{ secrets.SENTRY_MAIL_USERNAME }}
+          password: ${{ secrets.SENTRY_MAIL_PASSWORD }}
           subject: "${{ env.REPORT_PLACE }} - 订阅信息"
           html_body: file://result.html
-          to: 3313336101@qq.com
-          #cc: chihou.pro@gmail.com
+          to: 2635641640@qq.com
+          cc: chihou.pro@gmail.com
           from: 哨兵 -  ${{ env.REPORT_COMMIT }}
           content_type: text/html
