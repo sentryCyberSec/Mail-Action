@@ -12,7 +12,7 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Send Email'
-        run: bash ./processEmail.sh
+        run: bash ./SCS_domail_mail_manage.sh contact@sentrylab.cn
       - name: 'Get Some Value'
         run: |
           echo "REPORT_COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
@@ -20,7 +20,7 @@ jobs:
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtppro.zoho.com
+          server_address: smtp.yandex.com
           server_port: 465
           #username: ${{ secrets.MAIL_USERNAME }}
           #password: ${{ secrets.MAIL_PASSWORD }}
@@ -28,7 +28,7 @@ jobs:
           password: ${{ secrets.SENTRY_MAIL_PASSWORD }}
           subject: "${{ env.REPORT_PLACE }} - 订阅信息"
           html_body: file://result.html
-          to: 2635641640@qq.com
-          cc: chihou.pro@gmail.com
+          to: 1904829268@qq.com
+          #cc: chihou.pro@gmail.com
           from: 哨兵 -  ${{ env.REPORT_COMMIT }}
           content_type: text/html
