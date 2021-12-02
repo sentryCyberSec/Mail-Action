@@ -1,9 +1,35 @@
 # 哨兵EMAIL申请
 
-用法：
+- 用法：
 
+第一步：FORK:)
 
+第二步：克隆代码到本地
 
+`git clone https://github.com/${your-name}/Mail-Action.git`
+
+第三步：切换到`SCS-1.0-dev`远程分支（远程库默认名字为origin）
+
+`git checkout SCS-1.0-dev`
+
+第四步：在该分支提交你的更改，然后提交
+
+<code>
+git add .
+$ (linux & mac) git commit -m "[`date +%Y/%m/%d/%T`]<调试::ACTION>: commit by bin4xin/${Operator-name}"
+> (windows)
+git push origin SCS-1.0-dev
+</code>
+
+第五步：推送本地分支到自己的fork库
+
+```
+git fetch origin
+git merge SCS-1.0-dev
+git push upstream SCS-1.0-dev
+```
+
+第六步：点击上面的`pull request`就可以推送请求了，确认无误后填写`pull request`的标题和具体内容，点击`create pull request`绿色按钮推送
 
 # Email Action
 

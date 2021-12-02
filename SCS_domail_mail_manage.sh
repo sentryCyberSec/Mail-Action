@@ -18,12 +18,13 @@ function _Generate_Users_StrongPassword_Algorithm(){
 function _Domain_MainAccess_Manage_ByAdmin(){
 	_Pass_From_GUSP_Algo=$(printf "%s" "${Pass_Sting_Array[@]}")
 
-# try to access main list.
+#	try to access main list.
 # 	MAIL_List_result=$(curl -H "PddToken: ${Define_PDD_Token}" \
 # 	-H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:93.0) Gecko/20100101 Firefox/93.0
 # Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
 # 	"$Aceess_EmailList_Manage_API/list?domain=$Access_Domain")
-	# add user.
+
+#	add user.
 	ADD_MAIL_List_Request=$(curl -H "PddToken: ${Define_PDD_Token}" \
 	-H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:93.0) Gecko/20100101 Firefox/93.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" \
