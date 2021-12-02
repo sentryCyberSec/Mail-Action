@@ -1,3 +1,10 @@
+# 哨兵EMAIL申请
+
+用法：
+
+
+
+
 # Email Action
 
 *GithubAction发送邮件样例，仅仅只是一个测试demo*

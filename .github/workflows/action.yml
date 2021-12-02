@@ -12,7 +12,7 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Send Email'
-        run: bash ./SCS_domail_mail_manage.sh contact@sentrylab.cn
+        run: bash ./SCS_domail_mail_manage.sh ${{secrets.SENTRY_MAIL_PDDTOKEN}} administrator #修改这里！最后一个字段为您的用户名
       - name: 'Get Some Value'
         run: |
           echo "REPORT_COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
@@ -24,11 +24,12 @@ jobs:
           server_port: 465
           #username: ${{ secrets.MAIL_USERNAME }}
           #password: ${{ secrets.MAIL_PASSWORD }}
-          username: ${{ secrets.SENTRY_MAIL_USERNAME }}
-          password: ${{ secrets.SENTRY_MAIL_PASSWORD }}
-          subject: "${{ env.REPORT_PLACE }} - 订阅信息"
+          username: ${{secrets.SENTRY_MAIL_USERNAME}}
+          password: ${{secrets.SENTRY_MAIL_PASSWORD}}
+          subject: "您的订阅信息"
           html_body: file://result.html
-          to: 1904829268@qq.com
+          to: 1904829268@qq.com # 修改这里！接收您账号密码的邮箱
           #cc: chihou.pro@gmail.com
-          from: 哨兵 -  ${{ env.REPORT_COMMIT }}
+          #from: 哨兵 -  ${{ env.REPORT_COMMIT }}
+          from: 哨兵
           content_type: text/html
