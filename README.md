@@ -17,7 +17,7 @@
 ```bash
 git add .
 $ (linux & mac) git commit -m "[`date +%Y/%m/%d/%T`]<调试::ACTION>: commit by bin4xin/${Operator-name}"
-> (windows powershell) git commit -m "(get-date -format "yyyy/MM/dd/HH:mm:ss")<调试::ACTION>: commit by bin4xin/${Operator-name}"
+> (windows powershell) git commit -m "(get-date -format 'yyyy/MM/dd/HH:mm:ss')<调试::ACTION>: commit by bin4xin/${Operator-name}"
 git push origin SCS-1.0-dev
 ```
 
