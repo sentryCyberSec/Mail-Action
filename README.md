@@ -1,6 +1,6 @@
 # 哨兵EMAIL申请
 
-- 用法：
+## Git用法：
 
 第一步：FORK:)
 
@@ -14,22 +14,26 @@
 
 第四步：在该分支提交你的更改，然后提交
 
-<code>
+```bash
 git add .
 $ (linux & mac) git commit -m "[`date +%Y/%m/%d/%T`]<调试::ACTION>: commit by bin4xin/${Operator-name}"
-> (windows)
+> (windows powershell) git commit -m "(get-date -format "yyyy/MM/dd/HH:mm:ss")<调试::ACTION>: commit by bin4xin/${Operator-name}"
 git push origin SCS-1.0-dev
-</code>
+```
 
 第五步：推送本地分支到自己的fork库
 
-```
+```bash
 git fetch origin
 git merge SCS-1.0-dev
 git push upstream SCS-1.0-dev
 ```
 
 第六步：点击上面的`pull request`就可以推送请求了，确认无误后填写`pull request`的标题和具体内容，点击`create pull request`绿色按钮推送
+
+## 手动触发
+
+
 
 # Email Action
 
