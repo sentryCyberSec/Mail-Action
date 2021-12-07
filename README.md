@@ -1,6 +1,6 @@
 # 哨兵EMAIL申请
 
-## Git用法：
+## Git 用法：
 
 第一步：FORK:)
 
@@ -15,15 +15,17 @@
 第四步：在该分支提交你的更改，然后提交
 
 ```bash
-git add .
-$ (linux & mac) git commit -m "[`date +%Y/%m/%d/%T`]<调试::ACTION>: commit by bin4xin/${Operator-name}"
-> (windows powershell) git commit -m "(get-date -format 'yyyy/MM/dd/HH:mm:ss')<调试::ACTION>: commit by bin4xin/${Operator-name}"
-git push origin SCS-1.0-dev
+$ git add .
+$ (linux & mac) git commit -m "[`date +%Y/%m/%d/%T`]<调试::ACTION>: commit by `git config --global --list|grep user.name|awk -F"=" '{print $2}'`"
+> (推荐windows Git Bash) git commit -m "[`date +%Y/%m/%d/%T`]<测试::GitBash on MSWin>: commit by `git config --global --list|grep user.name|awk -F"=" '{print $2}'`"
+$ git push origin SCS-1.0-dev
 ```
 
 第五步：推送本地分支到自己的fork库
 
 ```bash
+git remote add upstream git@github.com:sentryCyberSec/Mail-Action.git
+
 git fetch origin
 git merge SCS-1.0-dev
 git push upstream SCS-1.0-dev
@@ -33,6 +35,7 @@ git push upstream SCS-1.0-dev
 
 ## 手动触发
 
+- [git@github.com: Permission denied (publickey). 解决github Permission denied (publickey)问题](https://www.jianshu.com/p/f22d02c7d943)
 
 
 # Email Action
